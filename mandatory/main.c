@@ -7,7 +7,6 @@ void leak()
 
 void protect_it(t_cmd *cmd)
 {
-    cmd->all_path = NULL;
     cmd->cmd = NULL;
     cmd->opt = NULL;
     cmd->paths = NULL;
@@ -22,7 +21,7 @@ int main (int ac, char **av, char **envp)
     // < infile grep a1 | wc -w > outfile
     atexit(leak);
     if (ac != 5)
-        return (myputstr("the number o arguments is not 5 !"), FAILED);
+        return (myputstr("the number o arguments is not 5 !\n"), FAILED);
     protect_it(&cmd);
-    parcing(av, envp);
+    parcing(&cmd, av, envp);
 }

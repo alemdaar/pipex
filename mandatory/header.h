@@ -16,10 +16,10 @@
 #include <sys/types.h>
 // struct
 typedef struct s_cmd {
-	char *cmd;
-	char *opt;
+	char **cmd;
+	char **opt;
 	char **paths;
-	char **all_path;
+	char *all_path;
 	int	count_path;
 	
 }	t_cmd;
@@ -40,11 +40,16 @@ void why_exit(char *str, int type);
 // |-tools
 // |  |->tools.c
 int		mystrlen(char *str);
-char	*mixem(char *path, char *cmd);
 // |- parcing
 // |  |->parcing1.c
-int		parcing(char **av, char **envp);
-int		check_cmd(char *cmd, t_cmd *cmd);
-int		check_access(char *path, char *cmd);
-char	*fill_cmd(char *cmd);
+int	parcing(t_cmd *cmd, char **av, char **envp);
+void	edit_paths(t_cmd *cmd, char **envp);
+void	find_path(t_cmd *cmd, char	**envp);
+void count_path(t_cmd *cmd);
+void	fill_path(t_cmd *cmd, t_ind ind);
+void zerod_2(char ***str, int count);
+void zerod_1(char **str, int count);
+void free_all (t_cmd *cmd);
+int	fill_cmd(char *input, t_cmd *cmd);
+int	fill_opt(char *input, t_cmd *cmd);
 #endif
