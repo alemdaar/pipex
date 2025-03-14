@@ -10,22 +10,23 @@ int	mystrlen (char *str)
 	return (i);
 }
 
-char	*mixem(char *path, char *cmd)
+char	*mixem(t_cmd *cmd, t_other *other, int path_ind)
 {
 	char *str;
 	int	i;
 	int j;
 
-	str = malloc (mystrlen(path) + mystrlen(cmd) + 1);
+	str = malloc (mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd) + 2);
 	if (!str)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (path[j])
-		str[i++] = path[j++];
+	while (other->paths[path_ind][j])
+		str[i++] = other->paths[path_ind][j++];
 	j = 0;
-	while (cmd[j])
-		str[i++] = cmd[j++];
+	str[i++] = '/';
+	while (cmd->cmd[j])
+		str[i++] = cmd->cmd[j++];
 	str[i] = 0;
 	return (str);
 }
