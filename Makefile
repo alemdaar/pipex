@@ -6,11 +6,11 @@ CC = cc
 
 SRC = mandatory/main.c mandatory/srcs/display/display.c \
 	mandatory/srcs/parcing/parcing1.c mandatory/srcs/tools/tools.c \
-	mandatory/srcs/free/free.c 
+	mandatory/srcs/free/free.c mandatory/srcs/linkedlist/linkedlist.c mandatory/srcs/execution/execution.c
 
 OBJ = ${SRC:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+# CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
 	@$(CC) ${CFLAGS} -c $< -o $@

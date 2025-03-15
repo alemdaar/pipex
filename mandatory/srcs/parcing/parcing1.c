@@ -225,11 +225,9 @@ int check_cmd(t_cmd *cmd, t_other *other)
 
 int	check_access(t_cmd *cmd, t_other *other, int path_ind)
 {
-	int	i;
 	cmd->path_cmd = mixem(cmd, other, path_ind);
 	if (!cmd->path_cmd)
 		return (myputstr("full path failed allocation\n"), ERROR);
-	i = 0;
 	if (access(cmd->path_cmd, F_OK) == SUCCESSFUL)
 	{
 		if (access(cmd->path_cmd, X_OK) == SUCCESSFUL)
