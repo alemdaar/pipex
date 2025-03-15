@@ -136,10 +136,9 @@ int execution(t_cmd *cmd, t_other *other)
         exit(1);
     }
     close (other->pipefd[0]);
+    close (other->pipefd[0]);
 	close (other->pipefd[1]);
 	wait(NULL);
 	wait(NULL);
-	close(other->open1);
-	close(other->open2);
     return (SUCCESSFUL);
 }

@@ -51,6 +51,6 @@ int main(int ac, char **av, char **envp)
     //         child_process(&cmd, av);
     //     i++;
     // }
-
     while (1);
+
 }
