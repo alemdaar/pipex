@@ -1,6 +1,6 @@
 NAME = pipex
 
-NAME_BONUS = pipex
+NAME_BONUS = pipex_bonus
 
 CC = cc
 
@@ -10,7 +10,7 @@ SRC = mandatory/main.c mandatory/srcs/display/display.c \
 
 OBJ = ${SRC:.c=.o}
 
-# CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
 	@$(CC) ${CFLAGS} -c $< -o $@
