@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 17:13:00 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 20:40:53 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	check_file(t_cmd *cmd, t_other *other, int flag)
 		}
 		return (SUCCESSFUL);
 	}
-	other->open2 = open (other->outfile,O_WRONLY | O_TRUNC | O_CREAT, 0644);
+	other->open2 = open (other->outfile, O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (other->open2 == -1)
 	{
 		free_all(cmd, other);
