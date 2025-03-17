@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:02:49 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 18:03:15 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:56:07 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	why_exit(char *str, int type)
 
 	if (type == 1)
 		fd = 2;
-	else if (type == 0)
+	else
 		fd = 1;
 	myputstr(str, fd);
 	exit(type);

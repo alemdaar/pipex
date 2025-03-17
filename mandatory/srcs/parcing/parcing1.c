@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:13:15 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 19:54:14 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:05:40 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	parcing(t_cmd **cmd, char **av, t_other *other)
 		ind.c = check_cmd(tmp, other);
 		if (ind.c == ERROR)
 			return (free_all(*cmd, other), exit(1), 1);
-		ind.r = fill_argument(&tmp, other);
+		ind.r = fill_argument(&tmp);
 		if (ind.r == ERROR)
 			return (free_all(*cmd, other), exit(1), 1);
 		tmp = tmp->next;
@@ -103,7 +103,7 @@ int	fill_argument2(t_cmd *tmp, t_ind *ind)
 	return (SUCCESSFUL);
 }
 
-int	fill_argument(t_cmd **cmd, t_other *other)
+int	fill_argument(t_cmd **cmd)
 {
 	t_ind	ind;
 	t_cmd	*tmp;
@@ -114,7 +114,7 @@ int	fill_argument(t_cmd **cmd, t_other *other)
 	ind.f = 0;
 	if (is_awk(tmp->cmd) == TRUE)
 	{
-		ind.r = awk_arg(cmd, other);
+		ind.r = awk_arg(cmd);
 		if (ind.r == ERROR)
 			return (ERROR);
 		return (SUCCESSFUL);

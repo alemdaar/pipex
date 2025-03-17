@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:31:08 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 20:01:58 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:02:45 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	fill_cmd(char *input, t_cmd *cmd, t_ind *rtn)
 	return (SUCCESSFUL);
 }
 
-static int	fill_opt2(char *input, t_cmd *cmd, t_ind *ind)
+int	fill_opt2(char *input, t_cmd *cmd, t_ind *ind)
 {
 	if (input[ind->t] != ' ' && ind->r == FALSE)
 	{

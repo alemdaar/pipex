@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 18:09:32 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 16:58:04 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	pipping(t_cmd *cmd, t_other *other)
 	return (SUCCESSFUL);
 }
 
-int	dupping(t_cmd *tmp, t_cmd *cmd, t_other *other, int position)
+int	dupping(t_cmd *tmp, t_other *other, int position)
 {
 	t_ind	ind;
 
@@ -76,7 +76,7 @@ int	child_process(t_cmd *tmp, t_cmd *cmd, t_other *other, int position)
 		free_all(cmd, other);
 		return (perror("open: "), exit(1), 1);
 	}
-	dupping(tmp, cmd, other, position);
+	dupping(tmp, other, position);
 	if (ind.r == -1)
 	{
 		free_all(cmd, other);

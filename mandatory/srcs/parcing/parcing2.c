@@ -6,13 +6,13 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:09:32 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 20:01:33 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 17:04:52 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header.h"
 
-static int	is_awk(char *cmd)
+int	is_awk(char *cmd)
 {
 	if (cmd[0] == 'a' && cmd[1] == 'w')
 	{
@@ -22,7 +22,7 @@ static int	is_awk(char *cmd)
 	return (FALSE);
 }
 
-static int	awk_arg3(t_cmd *tmp, t_ind *ind)
+int	awk_arg3(t_cmd *tmp, t_ind *ind)
 {
 	ind->c ++;
 	while (tmp->opt[ind->c] && tmp->opt[ind->c] != 39)
@@ -32,7 +32,7 @@ static int	awk_arg3(t_cmd *tmp, t_ind *ind)
 	return (SUCCESSFUL);
 }
 
-static int	awk_arg2(t_cmd *tmp, t_ind *ind)
+int	awk_arg2(t_cmd *tmp, t_ind *ind)
 {
 	ind->t = 0;
 	while (tmp->opt[ind->j] && tmp->opt[ind->j] == ' ')
@@ -58,7 +58,7 @@ static int	awk_arg2(t_cmd *tmp, t_ind *ind)
 	return (tmp->argument[ind->i++][ind->t] = 0, 0);
 }
 
-static int	count_awk_opt(char *opt)
+int	count_awk_opt(char *opt)
 {
 	t_ind	ind;
 
@@ -86,7 +86,7 @@ static int	count_awk_opt(char *opt)
 	return (ind.r);
 }
 
-int	awk_arg(t_cmd **cmd, t_other *other)
+int	awk_arg(t_cmd **cmd)
 {
 	t_ind	ind;
 	t_cmd	*tmp;
