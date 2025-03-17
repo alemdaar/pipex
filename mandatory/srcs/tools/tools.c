@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 20:40:53 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 21:01:47 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	check_file(t_cmd *cmd, t_other *other, int flag)
 		other->open1 = open (other->infile, O_RDONLY);
 		if (other->open1 == -1)
 		{
+			close_fds(other->pipefd, -1);
 			free_all(cmd, other);
 			perror("open: ");
 			exit(FAILED);
@@ -68,6 +69,7 @@ int	check_file(t_cmd *cmd, t_other *other, int flag)
 	other->open2 = open (other->outfile, O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (other->open2 == -1)
 	{
+		close_fds(other->pipefd, -1);
 		free_all(cmd, other);
 		perror("open: ");
 		exit(FAILED);

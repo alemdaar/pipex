@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 16:58:04 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/17 22:15:07 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 {
 	if (tmp->path_cmd == NULL)
 	{
+		free_all(cmd, other);
 		myputstr ("Error: command not found\n", 2);
 		exit(1);
 	}
 	if (execve(tmp->path_cmd, tmp->argument, NULL) == ERROR)
 	{
 		free_all(cmd, other);
+		perror ("execve: ");
 		exit(1);
 	}
 	return (SUCCESSFUL);
@@ -48,19 +50,20 @@ int	dupping(t_cmd *tmp, t_other *other, int position)
 	{
 		ind.r = dup2(other->open1, 0);
 		if (ind.r == -1)
-			return (ERROR);
+			return (close_fds(other->pipefd, other->open1), ERROR);
 		ind.r = dup2(other->pipefd[WRITE], 1);
 		if (ind.r == -1)
-			return (ERROR);
+			return (close_fds(other->pipefd, other->open1), ERROR);
 		close_fds(other->pipefd, other->open1);
+		close (other->pipefd[WRITE]);
 		return (SUCCESSFUL);
 	}
 	ind.r = dup2(other->pipefd[READ], 0);
 	if (ind.r == -1)
-		return (ERROR);
+		return (close_fds(other->pipefd, other->open2), ERROR);
 	ind.r = dup2(other->open2, 1);
 	if (ind.r == -1)
-		return (ERROR);
+		return (close_fds(other->pipefd, other->open2), ERROR);
 	close_fds(other->pipefd, other->open2);
 	return (SUCCESSFUL);
 }
@@ -76,7 +79,7 @@ int	child_process(t_cmd *tmp, t_cmd *cmd, t_other *other, int position)
 		free_all(cmd, other);
 		return (perror("open: "), exit(1), 1);
 	}
-	dupping(tmp, other, position);
+	ind.r = dupping(tmp, other, position);
 	if (ind.r == -1)
 	{
 		free_all(cmd, other);
