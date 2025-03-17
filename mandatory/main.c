@@ -18,7 +18,7 @@ int	main(int ac, char **av, char **envp)
 	t_other	other;
 
 	if (ac != 5)
-		return (myputstr("args nb < 5 !\n", 2), FAILED);
+		return (myputstr("args != 5 !\n", 2), FAILED);
 	cmd = NULL;
 	other.paths = NULL;
 	other.ac = ac;
