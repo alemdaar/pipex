@@ -6,13 +6,13 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 23:08:01 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:21:18 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header_bonus.h"
 
-int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
+static int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 {
 	if (tmp->path_cmd == NULL)
 	{
@@ -33,7 +33,7 @@ int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 	return (SUCCESSFUL);
 }
 
-int	pipping(t_cmd *tmp, t_cmd *cmd, t_other *other)
+static int	pipping(t_cmd *tmp, t_cmd *cmd, t_other *other)
 {
 	t_ind	ind;
 
@@ -46,7 +46,7 @@ int	pipping(t_cmd *tmp, t_cmd *cmd, t_other *other)
 	return (SUCCESSFUL);
 }
 
-int	dupping(t_cmd *tmp, t_other *other, int position)
+static int	dupping(t_cmd *tmp, t_other *other, int position)
 {
 	t_ind	ind;
 

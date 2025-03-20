@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:57:09 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 19:59:44 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:38:27 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ static void	is_here_doc(char *str, t_other *other)
 			if (str[6] == 'o' && str[7] == 'c' && str[8] == 0)
 			{
 				other->is_limiter = 1;
+				write (1, "1", 1);
 				if (access(other->infile, F_OK) == 0)
+				{
 					unlink(other->infile);
+				}
 				return ;
 			}
 		}
