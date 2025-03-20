@@ -16,7 +16,7 @@ SRC_BONUS = bonus/main_bonus.c bonus/srcs_bonus/display_bonus/display_bonus.c \
 	bonus/srcs_bonus/free_bonus/free_bonus.c \
 	bonus/srcs_bonus/linkedlist_bonus/linkedlist_bonus.c bonus/srcs_bonus/execution_bonus/execution_bonus.c \
 	bonus/srcs_bonus/here_doc/here_doc_bonus.c bonus/get_next_line/get_next_line.c \
-	bonus/get_next_line/get_next_line_utils.c
+	bonus/srcs_bonus/execution_bonus/execution2_bonus.c bonus/get_next_line/get_next_line_utils.c
 
 OBJ = ${SRC:.c=.o}
 

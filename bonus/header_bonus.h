@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:56:48 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 23:01:53 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:08:08 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,12 @@ int		execution(t_cmd *cmd, t_other *other);
 int		close_fds(int fds[2], int file);
 int		make_heredoc(t_other *other);
 int		is_limiter(char *line, char *limiter);
-int		dupping(t_cmd *tmp, t_other *other, int position);
+int		dupping2(t_cmd *tmp, t_other *other, int position);
 int		execution2(t_cmd *tmp, t_cmd *cmd, t_other *other, int i);
 int		set_parcing(t_other *other);
 int		check_file2(t_cmd *cmd, t_other *other, int flag);
+int		exec(t_cmd *tmp, t_cmd *cmd, t_other *other);
+int		pipping(t_cmd *tmp, t_cmd *cmd, t_other *other);
+int		dupping(t_cmd *tmp, t_other *other, int position);
+int		child_process(t_cmd *tmp, t_cmd *cmd, t_other *other, int position);
 #endif
