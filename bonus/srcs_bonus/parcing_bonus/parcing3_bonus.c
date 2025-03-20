@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:31:08 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 20:25:50 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:01:38 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,18 +90,12 @@ int	check_access(t_cmd *cmd, t_other *other, int path_ind)
 	return (free(cmd->path_cmd), cmd->path_cmd = NULL, FALSE);
 }
 
-int	parcing2(t_cmd *tmp, t_cmd **cmd, t_other *other, char **av)
+int	set_parcing(t_other *other)
 {
-	t_ind	ind;
+	int	i;
 
-	ind.f = edit_cmd(tmp, av, ind.i);
-	if (ind.f == ERROR)
-		return (free_all(*cmd, other), exit(1), 1);
-	ind.c = check_cmd(tmp, other);
-	if (ind.c == ERROR)
-		return (free_all(*cmd, other), exit(1), 1);
-	ind.r = fill_argument(&tmp);
-	if (ind.r == ERROR)
-		return (free_all(*cmd, other), exit(1), 1);
-	return (SUCCESSFUL);
+	i = 2;
+	if (other->is_limiter == TRUE)
+		i = 3;
+	return (i);
 }

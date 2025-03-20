@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 20:17:24 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:10:21 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ static int	dupping(t_cmd *tmp, t_other *other, int position)
 		return (SUCCESSFUL);
 	}
 	ind.r = dupping2(tmp, other, position);
-	if (ind.r == -1)
-		return (ERROR);
 	return (SUCCESSFUL);
 }
 
@@ -97,6 +95,9 @@ int	execution(t_cmd *cmd, t_other *other)
 	tmp = cmd;
 	while (tmp)
 	{
+		if (tmp->next)
+			pipping(tmp, cmd, other);
+		tmp->pid = fork();
 		execution2(tmp, cmd, other, ind.i);
 		ind.i++;
 		tmp = tmp->next;

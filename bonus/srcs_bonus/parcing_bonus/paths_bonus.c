@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 17:49:11 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 22:58:17 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,4 +93,5 @@ void	fill_path(t_other *other, t_ind ind)
 	while (ind.i < ind.j)
 		other->paths[ind.c][a++] = other->all_path[ind.i++];
 	other->paths[ind.c][a] = 0;
+	return ;
 }

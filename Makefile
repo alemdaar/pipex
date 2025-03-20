@@ -12,7 +12,8 @@ SRC = mandatory/main.c mandatory/srcs/display/display.c \
 SRC_BONUS = bonus/main_bonus.c bonus/srcs_bonus/display_bonus/display_bonus.c \
 	bonus/srcs_bonus/parcing_bonus/parcing1_bonus.c bonus/srcs_bonus/parcing_bonus/parcing2_bonus.c \
 	bonus/srcs_bonus/parcing_bonus/parcing3_bonus.c bonus/srcs_bonus/parcing_bonus/paths_bonus.c \
-	bonus/srcs_bonus/tools_bonus/tools_bonus.c bonus/srcs_bonus/free_bonus/free_bonus.c \
+	bonus/srcs_bonus/tools_bonus/tools_bonus.c bonus/srcs_bonus/tools_bonus/tools2_bonus.c \
+	bonus/srcs_bonus/free_bonus/free_bonus.c \
 	bonus/srcs_bonus/linkedlist_bonus/linkedlist_bonus.c bonus/srcs_bonus/execution_bonus/execution_bonus.c \
 	bonus/srcs_bonus/here_doc/here_doc_bonus.c bonus/get_next_line/get_next_line.c \
 	bonus/get_next_line/get_next_line_utils.c

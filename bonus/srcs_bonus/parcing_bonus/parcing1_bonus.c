@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:13:15 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 20:25:20 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:01:24 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ int	parcing(t_cmd **cmd, char **av, t_other *other)
 	t_ind	ind;
 	t_cmd	*tmp;
 
-	ind.i = 2;
-	if (other->is_limiter == TRUE)
-		ind.i = 3;
+	ind.i = set_parcing(other);
 	tmp = *cmd;
 	while (ind.i < other->ac - 1)
 	{
@@ -28,9 +26,15 @@ int	parcing(t_cmd **cmd, char **av, t_other *other)
 			return (free_all(*cmd, other), why_exit("node failed !\n", 1), 1);
 		protect_it(tmp);
 		ft_lstadd_back(cmd, tmp);
-		ind.r = parcing2(tmp, cmd, other, av);
-		if (ind.r == -1)
-			return (ERROR);
+		ind.f = edit_cmd(tmp, av, ind.i);
+		if (ind.f == ERROR)
+			return (free_all(*cmd, other), exit(1), 1);
+		ind.c = check_cmd(tmp, other);
+		if (ind.c == ERROR)
+			return (free_all(*cmd, other), exit(1), 1);
+		ind.r = fill_argument(&tmp);
+		if (ind.r == ERROR)
+			return (free_all(*cmd, other), exit(1), 1);
 		tmp = tmp->next;
 		ind.i ++;
 	}
