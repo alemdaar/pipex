@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:15:10 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:05:57 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/21 01:51:39 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,20 @@ void	free_all(t_cmd *cmd, t_other *other)
 {
 	t_ind	ind;
 	t_cmd	*tmp;
-	t_cmd	*tmp2;
 
 	tmp = cmd;
 	while (tmp)
 	{
+		cmd = cmd->next;
 		free_all2(tmp, &ind);
-		tmp2 = tmp;
-		free (tmp2);
-		tmp = tmp->next;
+		free (tmp);
+		tmp = NULL;
+		tmp = cmd;
 	}
 	if (other->paths)
 	{
 		ind.i = 0;
-		while (other->paths[ind.i] && ind.i < other->count_path)
+		while (other->paths[ind.i] && ind.i < other->count_path - 1)
 			free(other->paths[ind.i++]);
 		free(other->paths);
 	}

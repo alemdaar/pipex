@@ -20,7 +20,7 @@ OBJ = ${SRC:.c=.o}
 
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c bonus/header_bonus.h mandatory/header.h
 	@$(CC) ${CFLAGS} -c $< -o $@

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
+/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:13:40 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/21 01:38:45 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	edit_paths(t_other *other, char **envp)
 	ind.c = 0;
 	ind.j = ind.i;
 	ind.f = 0;
-	while (other->all_path[ind.i] && ind.f < other->count_path)
+	printf ("is : %d\n", other->count_path);
+	while (other->all_path[ind.i] && ind.f < other->count_path -1)
 	{
+		printf ("....\n");
 		while (other->all_path[ind.j] && other->all_path[ind.j] != ':')
 			ind.j++;
 		if (!other->all_path[ind.j] || other->all_path[ind.j] == ':')
