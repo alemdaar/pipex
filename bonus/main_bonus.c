@@ -6,7 +6,7 @@
 /*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:57:09 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:51:57 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:53:43 by oelhasso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,11 @@ static void	set_up(int ac, char **av, t_other *other)
 	other->outfile = av[ac - 1];
 }
 
-void ll(){
-	system("leaks pipex");
-}
-
 int	main(int ac, char **av, char **envp)
 {
 	t_cmd	*cmd;
 	t_other	other;
-	atexit(ll);
+
 	if (ac < 5)
 		return (myputstr("args nb < 5 !\n", 2), FAILED);
 	is_here_doc(av[1], &other);
