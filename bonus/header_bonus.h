@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header_bonus.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:56:48 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 23:21:32 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:11:18 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int		parcing(t_cmd **cmd, char **av, t_other *other);
 void	edit_paths(t_other *other, char **envp);
 void	find_path(t_other *other, char	**envp);
 void	count_path(t_other *other);
-void	fill_path(t_other *other, t_ind ind);
+void	fill_path(t_other *other, t_ind *ind);
 void	free_all(t_cmd *cmd, t_other *other);
 int		fill_cmd(char *input, t_cmd *cmd, t_ind *rtn);
 int		fill_opt(char *input, t_cmd *cmd, int pos);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   here_doc_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 00:00:40 by macbookair        #+#    #+#             */
-/*   Updated: 2025/03/20 20:18:35 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/21 00:23:29 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	open_here_doc(t_other *other)
 {
-	other->open1 = open(other->infile, O_CREAT | O_RDWR | O_APPEND, 0644);
+	other->open1 = open(other->infile, O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (other->open1 == -1)
 	{
 		perror("open: ");

@@ -1,7 +1,5 @@
 NAME = pipex
 
-NAME_BONUS = pipex_bonus
-
 CC = cc
 
 SRC = mandatory/main.c mandatory/srcs/display/display.c \
@@ -22,21 +20,19 @@ OBJ = ${SRC:.c=.o}
 
 OBJ_BONUS = ${SRC_BONUS:.c=.o}
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address
 
-%.o: %.c
+%.o: %.c bonus/header_bonus.h mandatory/header.h
 	@$(CC) ${CFLAGS} -c $< -o $@
 
 all: ${NAME}
 
-$(NAME): $(OBJ) mandatory/header.h
+$(NAME): $(OBJ)
 	@$(CC) $(OBJ) ${CFLAGS} -o $(NAME)
 	@echo "compiled successfully !"
 
-bonus: ${NAME_BONUS}
-
-$(NAME_BONUS): $(OBJ_BONUS) bonus/header_bonus.h
-	@$(CC) $(OBJ_BONUS) ${CFLAGS} -o $(NAME_BONUS)
+bonus: $(OBJ_BONUS)
+	@$(CC) $(OBJ_BONUS) ${CFLAGS} -o $(NAME)
 	@echo "bonus compiled successfully !"
 
 clean :

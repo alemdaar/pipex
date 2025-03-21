@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 22:58:17 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:13:40 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,18 @@ void	edit_paths(t_other *other, char **envp)
 	ind.i = 5;
 	ind.c = 0;
 	ind.j = ind.i;
-	while (other->all_path[ind.i])
+	ind.f = 0;
+	while (other->all_path[ind.i] && ind.f < other->count_path)
 	{
 		while (other->all_path[ind.j] && other->all_path[ind.j] != ':')
 			ind.j++;
 		if (!other->all_path[ind.j] || other->all_path[ind.j] == ':')
-			fill_path(other, ind);
+			fill_path(other, &ind);
 		if (other->all_path[ind.j] == ':')
 			ind.j ++;
 		ind.i = ind.j;
 		ind.c ++;
+		ind.f ++;
 	}
 	return ;
 }
@@ -82,16 +84,16 @@ void	count_path(t_other *other)
 	return ;
 }
 
-void	fill_path(t_other *other, t_ind ind)
+void	fill_path(t_other *other, t_ind *ind)
 {
 	int	a;
 
 	a = 0;
-	other->paths[ind.c] = malloc (sizeof(char) * (ind.j - ind.i) + 1);
-	if (!other->paths[ind.c])
+	other->paths[ind->c] = malloc (sizeof(char) * (ind->j - ind->i) + 1);
+	if (!other->paths[ind->c])
 		free_all(NULL, other);
-	while (ind.i < ind.j)
-		other->paths[ind.c][a++] = other->all_path[ind.i++];
-	other->paths[ind.c][a] = 0;
+	while (ind->i < ind->j)
+		other->paths[ind->c][a++] = other->all_path[ind->i++];
+	other->paths[ind->c][a] = 0;
 	return ;
 }

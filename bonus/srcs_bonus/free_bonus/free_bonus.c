@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:15:10 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 17:39:56 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/21 01:05:57 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
