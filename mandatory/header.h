@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:56:48 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 20:12:15 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/23 01:27:07 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_other {
 	char	*outfile;
 	int		open1;
 	int		open2;
+	int debug;
 	int		pipefd[2];
 }	t_other;
 
@@ -82,7 +83,7 @@ int		fill_opt2(char *input, t_cmd *cmd, t_ind *ind);
 int		check_cmd(t_cmd *cmd, t_other *other);
 int		check_access(t_cmd *cmd, t_other *other, int path_ind);
 int		edit_cmd(t_cmd *cmd, char **av, int flag);
-int		check_file(t_cmd *cmd, t_other *other, int flag);
+int		check_file(t_other *other, int flag);
 int		fill_argument(t_cmd **cmd);
 int		fill_argument2(t_cmd *tmp, t_ind *ind);
 t_cmd	*ft_lstnew(void);

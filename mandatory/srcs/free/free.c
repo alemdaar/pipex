@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:15:10 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:55:23 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/23 01:22:15 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header.h"
 
-static void	free_all2(t_cmd *tmp, t_ind *ind)
+static void	free_tmp(t_cmd *tmp)
 {
+	t_ind	ind;
+
+	ind.i = 0;
 	if (tmp->cmd)
 	{
 		free(tmp->cmd);
@@ -31,33 +34,40 @@ static void	free_all2(t_cmd *tmp, t_ind *ind)
 	}
 	if (tmp->argument)
 	{
-		ind->i = 0;
-		while (tmp->argument[ind->i] && ind->i < tmp->ar)
-			free(tmp->argument[ind->i++]);
+		while (tmp->argument[ind.i] && ind.i < tmp->ar)
+			free(tmp->argument[ind.i]);
 		free(tmp->argument);
+		tmp->argument = NULL;
 	}
+}
+
+static void	free_paths(t_other *other)
+{
+	t_ind ind;
+
+	ind.i = 0;
+	while (other->paths[ind.i] && ind.i < other->count_path)
+	{
+		free(other->paths[ind.i]);
+		other->paths[ind.i++] = NULL;
+	}
+	free(other->paths);
+	other->paths = NULL;
 }
 
 void	free_all(t_cmd *cmd, t_other *other)
 {
-	t_ind	ind;
 	t_cmd	*tmp;
 
 	tmp = cmd;
 	while (tmp)
 	{
 		cmd = cmd->next;
-		free_all2(tmp, &ind);
+		free_tmp(tmp);
 		free (tmp);
-		tmp = NULL;
 		tmp = cmd;
 	}
 	if (other->paths)
-	{
-		ind.i = 0;
-		while (other->paths[ind.i] && ind.i < other->count_path - 1)
-			free(other->paths[ind.i++]);
-		free(other->paths);
-	}
+		free_paths(other);
 	return ;
 }
