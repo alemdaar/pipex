@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:56:48 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/23 01:27:07 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/23 20:41:09 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,14 @@ void	edit_paths(t_other *other, char **envp);
 void	find_path(t_other *other, char	**envp);
 void	count_path(t_other *other);
 void	fill_path(t_other *other, t_ind ind);
-void	free_all(t_cmd *cmd, t_other *other);
+void	free_all(t_cmd **cmd, t_other *other);
 int		fill_cmd(char *input, t_cmd *cmd, t_ind *rtn);
 int		fill_opt(char *input, t_cmd *cmd, int pos);
 int		fill_opt2(char *input, t_cmd *cmd, t_ind *ind);
 int		check_cmd(t_cmd *cmd, t_other *other);
 int		check_access(t_cmd *cmd, t_other *other, int path_ind);
 int		edit_cmd(t_cmd *cmd, char **av, int flag);
-int		check_file(t_other *other, int flag);
+int		check_file(t_cmd *cmd, t_other *other, int flag);
 int		fill_argument(t_cmd **cmd);
 int		fill_argument2(t_cmd *tmp, t_ind *ind);
 t_cmd	*ft_lstnew(void);

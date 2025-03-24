@@ -1,4 +1,4 @@
-NAME = pipex
+NAME = pipex2
 
 CC = cc
 

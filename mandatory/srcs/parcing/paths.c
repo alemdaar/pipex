@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/16 20:03:06 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/23 20:38:35 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

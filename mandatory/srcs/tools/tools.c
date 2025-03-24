@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/23 01:26:42 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/23 20:41:43 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,14 @@ int	close_fds(int fds[2], int file)
 	return (SUCCESSFUL);
 }
 
-int	check_file(t_other *other, int flag)
+int	check_file(t_cmd *cmd, t_other *other, int flag)
 {
 	if (flag == 0)
 	{
 		other->open1 = open (other->infile, O_RDONLY);
 		if (other->open1 == -1)
 		{
+			free_all(&cmd, other);
 			close_fds(other->pipefd, -1);
 			perror("open: ");
 			exit(FAILED);
@@ -68,6 +69,7 @@ int	check_file(t_other *other, int flag)
 	other->open2 = open (other->outfile, O_WRONLY | O_TRUNC | O_CREAT, 0644);
 	if (other->open2 == -1)
 	{
+		free_all(&cmd, other);
 		close_fds(other->pipefd, -1);
 		perror("open: ");
 		exit(FAILED);
