@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parcing1_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:13:15 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 23:01:24 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:26:29 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ int	parcing(t_cmd **cmd, char **av, t_other *other)
 	{
 		tmp = ft_lstnew();
 		if (!tmp)
-			return (free_all(*cmd, other), why_exit("node failed !\n", 1), 1);
+			return (free_all(cmd, other), why_exit("node failed !\n", 1), 1);
 		protect_it(tmp);
 		ft_lstadd_back(cmd, tmp);
 		ind.f = edit_cmd(tmp, av, ind.i);
 		if (ind.f == ERROR)
-			return (free_all(*cmd, other), exit(1), 1);
+			return (free_all(cmd, other), exit(1), 1);
 		ind.c = check_cmd(tmp, other);
 		if (ind.c == ERROR)
-			return (free_all(*cmd, other), exit(1), 1);
+			return (free_all(cmd, other), exit(1), 1);
 		ind.r = fill_argument(&tmp);
 		if (ind.r == ERROR)
-			return (free_all(*cmd, other), exit(1), 1);
+			return (free_all(cmd, other), exit(1), 1);
 		tmp = tmp->next;
 		ind.i ++;
 	}

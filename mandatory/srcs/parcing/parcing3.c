@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parcing3.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:31:08 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/17 17:02:45 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 17:47:49 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

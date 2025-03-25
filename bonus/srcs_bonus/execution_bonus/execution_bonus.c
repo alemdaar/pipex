@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:26:52 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:26:07 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 	{
 		if (access(other->infile, F_OK) == 0)
 			unlink(other->infile);
-		free_all(cmd, other);
+		free_all(&cmd, other);
 		myputstr ("Error: command not found\n", 2);
 		exit(1);
 	}
@@ -26,7 +26,7 @@ static int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 	{
 		if (access(other->infile, F_OK) == 0)
 			unlink(other->infile);
-		free_all(cmd, other);
+		free_all(&cmd, other);
 		perror ("execve: ");
 		exit(1);
 	}
@@ -40,7 +40,7 @@ static int	pipping(t_cmd *tmp, t_cmd *cmd, t_other *other)
 	ind.r = pipe(tmp->pipefd);
 	if (ind.r == -1)
 	{
-		free_all(cmd, other);
+		free_all(&cmd, other);
 		why_exit("Error: pipe failed\n", FAILED);
 	}
 	return (SUCCESSFUL);
@@ -79,7 +79,7 @@ int	child_process(t_cmd *tmp, t_cmd *cmd, t_other *other, int position)
 			if (access(other->infile, F_OK) == 0)
 				unlink(other->infile);
 		}
-		free_all(cmd, other);
+		free_all(&cmd, other);
 		return (perror("Error dup2: "), exit(1), 1);
 	}
 	exec(tmp, cmd, other);

@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 20:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/23 20:41:43 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 17:50:25 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,29 @@ char	*mixem(t_cmd *cmd, t_other *other, int path_ind)
 	int		i;
 	int		j;
 
-	str = malloc (mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd) + 2);
-	if (!str)
+	
+	if (other->all_path == NULL)
+	{
+		printf ("1\n");
+		str = malloc (mystrlen(cmd->cmd) + 1);
+	}
+	else
+	{
+		printf ("2\n");
+		str = malloc (mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd) + 2);
+	}
+	printf ("....\n");
+	if (!other->all_path)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (other->paths[path_ind][j])
-		str[i++] = other->paths[path_ind][j++];
-	j = 0;
-	str[i++] = '/';
+	if (other->all_path)
+	{
+		while (other->paths[path_ind][j])
+			str[i++] = other->paths[path_ind][j++];
+		j = 0;
+		str[i++] = '/';
+	}
 	while (cmd->cmd[j])
 		str[i++] = cmd->cmd[j++];
 	str[i] = 0;

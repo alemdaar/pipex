@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:15:10 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/24 01:33:06 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 03:15:20 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@ static void	free_tmp(t_cmd *tmp)
 {
 	t_ind	ind;
 
-	// if (access("first", F_OK) != 0)
-	// 	open ("first", O_CREAT | O_RDWR, 0777);
-	// else if (access("second", F_OK) != 0)
-	// 	open ("second", O_CREAT | O_RDWR, 0777);
-	// else if (access("third", F_OK) != 0)
-	// 	open ("third", O_CREAT | O_RDWR, 0777);
-	// else
-	// 	open ("last", O_CREAT | O_RDWR, 0777);
 	if (tmp->cmd)
 	{
 		free(tmp->cmd);

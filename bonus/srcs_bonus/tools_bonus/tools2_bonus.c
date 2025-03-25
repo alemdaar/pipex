@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:20:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 00:18:40 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 03:27:26 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	check_file2(t_cmd *cmd, t_other *other, int flag)
 		if (other->open2 == -1)
 		{
 			close(other->prev_read);
-			return (free_all(cmd, other), perror("open: "), exit(1), 1);
+			return (free_all(&cmd, other), perror("open: "), exit(1), 1);
 		}
 	}
 	return (SUCCESSFUL);

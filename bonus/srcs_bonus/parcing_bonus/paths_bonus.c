@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   paths_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:03:29 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:54:04 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:14:01 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	find_path(t_other *other, char	**envp)
 		}
 		i++;
 	}
-	return ;
+	why_exit("path is not exist\n", 1);
 }
 
 void	count_path(t_other *other)

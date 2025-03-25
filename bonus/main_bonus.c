@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 16:57:09 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/21 01:53:43 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 16:51:35 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	main(int ac, char **av, char **envp)
 
 	if (ac < 5)
 		return (myputstr("args nb < 5 !\n", 2), FAILED);
+	if (envp == NULL)
+		return (myputstr("env is empty\n", 2), FAILED);
 	is_here_doc(av[1], &other);
 	set_up(ac, av, &other);
 	if (other.is_limiter == TRUE)
@@ -63,5 +65,5 @@ int	main(int ac, char **av, char **envp)
 	edit_paths(&other, envp);
 	parcing(&cmd, av, &other);
 	execution(cmd, &other);
-	free_all(cmd, &other);
+	free_all(&cmd, &other);
 }

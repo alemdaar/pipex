@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 22:13:15 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/23 20:38:26 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 17:43:58 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,11 @@ int	check_cmd(t_cmd *cmd, t_other *other)
 		ind.i ++;
 	}
 	if (ind.c == FALSE)
-		return (cmd->path_cmd = NULL, FAILED);
+	{
+		ind.c = check_access(cmd, other, ind.i);
+		if (ind.c == FALSE)
+			return (cmd->path_cmd = NULL, FAILED);
+	}
 	return (SUCCESSFUL);
 }
 

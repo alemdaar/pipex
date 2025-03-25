@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execution2.c                                       :+:      :+:    :+:   */
+/*   execution2_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oelhasso <elhassounioussama2@gmail.com>    +#+  +:+       +#+        */
+/*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 21:30:43 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/20 22:09:51 by oelhasso         ###   ########.fr       */
+/*   Updated: 2025/03/25 03:26:17 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	execution2(t_cmd *tmp, t_cmd *cmd, t_other *other, int i)
 {
 	if (tmp->pid == -1)
 	{
-		free_all(cmd, other);
+		free_all(&cmd, other);
 		why_exit("Error: fork failed\n", FAILED);
 	}
 	if (tmp->pid == 0)

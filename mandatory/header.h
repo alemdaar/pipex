@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:56:48 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/23 20:41:09 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 17:29:06 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_other {
 	char	*outfile;
 	int		open1;
 	int		open2;
-	int debug;
 	int		pipefd[2];
 }	t_other;
 
@@ -73,7 +72,7 @@ int		mystrlen(char *str);
 void	protect_it(t_cmd *cmd);
 int		parcing(t_cmd **cmd, char **av, t_other *other);
 void	edit_paths(t_other *other, char **envp);
-void	find_path(t_other *other, char	**envp);
+int		find_path(t_other *other, char **envp);
 void	count_path(t_other *other);
 void	fill_path(t_other *other, t_ind ind);
 void	free_all(t_cmd **cmd, t_other *other);

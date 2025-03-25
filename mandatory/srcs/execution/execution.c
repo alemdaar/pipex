@@ -6,7 +6,7 @@
 /*   By: macbookair <macbookair@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 18:03:38 by oelhasso          #+#    #+#             */
-/*   Updated: 2025/03/24 17:32:09 by macbookair       ###   ########.fr       */
+/*   Updated: 2025/03/25 03:44:46 by macbookair       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 static int	exec(t_cmd *cmd, t_cmd *tmp, t_other *other)
 {
-	while (1);
 	if (tmp->path_cmd == NULL)
 	{
 		free_all(&cmd, other);
@@ -100,7 +99,6 @@ int	execution(t_cmd *cmd, t_other *other)
 	}
 	if (tmp->pid == 0)
 		child_process(cmd, tmp, other, 0);
-	while (1);
 	tmp = tmp->next;
 	tmp->pid = fork();
 	if (tmp->pid == -1)
