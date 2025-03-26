@@ -33,10 +33,7 @@ char	*mixem(t_cmd *cmd, t_other *other, int path_ind)
 		str = malloc (mystrlen(cmd->cmd) + 1);
 	else
 	{
-		printf ("path : %s\n", other->paths[path_ind]);
-		len = mystrlen(other->paths[path_ind]);
-		printf ("bin\n");
-		len += mystrlen(cmd->cmd);
+		len = mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd);
 		str = malloc (len + 2);
 	}
 	i = 0;

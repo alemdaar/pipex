@@ -12,19 +12,6 @@
 
 #include "../../header.h"
 
-// int	ft_lstsize(t_cmd *lst)
-// {
-// 	int	count;
-
-// 	count = 0;
-// 	while (lst != NULL)
-// 	{
-// 		count++;
-// 		lst = lst->next;
-// 	}
-// 	return (count);
-// }
-
 t_cmd	*ft_lstnew(void)
 {
 	t_cmd	*elem;

@@ -16,16 +16,16 @@ static int	exec(t_cmd *tmp, t_cmd *cmd, t_other *other)
 {
 	if (tmp->path_cmd == NULL)
 	{
-		if (access(other->infile, F_OK) == 0)
-			unlink(other->infile);
+		if (access("/tmp/here_doc", F_OK) == 0)
+			unlink("/tmp/here_doc");
 		free_all(&cmd, other);
 		myputstr ("Error: command not found\n", 2);
 		exit(1);
 	}
 	if (execve(tmp->path_cmd, tmp->argument, NULL) == ERROR)
 	{
-		if (access(other->infile, F_OK) == 0)
-			unlink(other->infile);
+		if (access("/tmp/here_doc", F_OK) == 0)
+			unlink("/tmp/here_doc");
 		free_all(&cmd, other);
 		perror ("execve: ");
 		exit(1);
@@ -76,8 +76,8 @@ int	child_process(t_cmd *tmp, t_cmd *cmd, t_other *other, int position)
 	{
 		if (position == 0)
 		{
-			if (access(other->infile, F_OK) == 0)
-				unlink(other->infile);
+			if (access("/tmp/here_doc", F_OK) == 0)
+				unlink("/tmp/here_doc");
 		}
 		free_all(&cmd, other);
 		return (perror("Error dup2: "), exit(1), 1);
@@ -108,7 +108,7 @@ int	execution(t_cmd *cmd, t_other *other)
 		wait(NULL);
 		ind.t ++;
 	}
-	if (access(other->infile, F_OK) == 0 && other->is_limiter == TRUE)
-		unlink(other->infile);
+	if (access("/tmp/here_doc", F_OK) == 0 && other->is_limiter == TRUE)
+		unlink("/tmp/here_doc");
 	return (SUCCESSFUL);
 }

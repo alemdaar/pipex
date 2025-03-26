@@ -49,8 +49,7 @@ int	make_heredoc(t_other *other)
 		if (line == NULL && ind.c == 0)
 		{
 			close(other->open1);
-			unlink(other->infile);
-			return (myputstr("gnl failed\n", 2), 1);
+			return (unlink("/tmp/here_doc"), myputstr("gnl failed\n", 2), 1);
 		}
 		if (line == NULL && ind.c == 1)
 			break ;
@@ -58,6 +57,7 @@ int	make_heredoc(t_other *other)
 		if (is_limiter(line, other->limiter) == TRUE)
 			return (free(line), SUCCESSFUL);
 		write (other->open1, line, mystrlen(line));
+		free(line);
 	}
 	if (line)
 		free(line);

@@ -43,7 +43,7 @@ static void	free_tmp(t_cmd *tmp)
 
 static void	free_paths(t_other *other)
 {
-	t_ind ind;
+	t_ind	ind;
 
 	ind.i = 0;
 	while (other->paths[ind.i] && ind.i < other->count_path)
