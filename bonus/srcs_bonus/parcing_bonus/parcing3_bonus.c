@@ -79,7 +79,9 @@ int	fill_opt(char *input, t_cmd *cmd, int pos)
 
 int	check_access(t_cmd *cmd, t_other *other, int path_ind)
 {
+	printf ("1\n");
 	cmd->path_cmd = mixem(cmd, other, path_ind);
+	printf ("2\n");
 	if (!cmd->path_cmd)
 		return (myputstr("full path failed allocation\n", STD_ERR), ERROR);
 	if (access(cmd->path_cmd, F_OK) == SUCCESSFUL)

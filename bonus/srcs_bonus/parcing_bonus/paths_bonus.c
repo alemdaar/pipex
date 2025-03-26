@@ -27,7 +27,7 @@ void	edit_paths(t_other *other, char **envp)
 	ind.c = 0;
 	ind.j = ind.i;
 	ind.f = 0;
-	while (other->all_path[ind.i] && ind.f < other->count_path -1)
+	while (other->all_path[ind.i] && ind.f < other->count_path - 1)
 	{
 		while (other->all_path[ind.j] && other->all_path[ind.j] != ':')
 			ind.j++;

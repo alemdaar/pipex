@@ -12,16 +12,11 @@
 
 #include "header.h"
 
-void ll()
-{
-	system ("leaks -q pipex");
-}
 int	main(int ac, char **av, char **envp)
 {
 	t_cmd	*cmd;
 	t_other	other;
 
-	atexit(ll);
 	if (ac != 5)
 		return (myputstr("args != 5 !\n", 2), FAILED);
 	if (envp == NULL)
@@ -33,7 +28,6 @@ int	main(int ac, char **av, char **envp)
 	other.infile = av[1];
 	other.outfile = av[ac - 1];
 	edit_paths(&other, envp);
-	printf("...\n");
 	parcing(&cmd, av, &other);
 	execution(cmd, &other);
 	free_all(&cmd, &other);

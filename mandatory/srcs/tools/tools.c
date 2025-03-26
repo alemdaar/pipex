@@ -26,16 +26,16 @@ char	*mixem(t_cmd *cmd, t_other *other, int path_ind)
 {
 	char	*str;
 	int		i;
-	int		j; 
+	int		j;
 	int		len;
 
-	len = mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd);
 	if (other->all_path == NULL || path_ind == -1)
 		str = malloc (mystrlen(cmd->cmd) + 1);
 	else
+	{
+		len = mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd);
 		str = malloc (len + 2);
-	if (!other->all_path && path_ind != -1)
-		return (NULL);
+	}
 	i = 0;
 	j = 0;
 	if (path_ind != -1)
