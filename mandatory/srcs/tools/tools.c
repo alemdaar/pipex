@@ -26,25 +26,19 @@ char	*mixem(t_cmd *cmd, t_other *other, int path_ind)
 {
 	char	*str;
 	int		i;
-	int		j;
+	int		j; 
+	int		len;
 
-	
-	if (other->all_path == NULL)
-	{
-		printf ("1\n");
+	len = mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd);
+	if (other->all_path == NULL || path_ind == -1)
 		str = malloc (mystrlen(cmd->cmd) + 1);
-	}
 	else
-	{
-		printf ("2\n");
-		str = malloc (mystrlen(other->paths[path_ind]) + mystrlen(cmd->cmd) + 2);
-	}
-	printf ("....\n");
-	if (!other->all_path)
+		str = malloc (len + 2);
+	if (!other->all_path && path_ind != -1)
 		return (NULL);
 	i = 0;
 	j = 0;
-	if (other->all_path)
+	if (path_ind != -1)
 	{
 		while (other->paths[path_ind][j])
 			str[i++] = other->paths[path_ind][j++];

@@ -75,7 +75,7 @@ int		mystrlen(char *str);
 void	protect_it(t_cmd *cmd);
 int		parcing(t_cmd **cmd, char **av, t_other *other);
 void	edit_paths(t_other *other, char **envp);
-void	find_path(t_other *other, char	**envp);
+int		find_path(t_other *other, char **envp);
 void	count_path(t_other *other);
 void	fill_path(t_other *other, t_ind *ind);
 void	free_all(t_cmd **cmd, t_other *other);

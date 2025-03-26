@@ -72,7 +72,11 @@ int	check_cmd(t_cmd *cmd, t_other *other)
 		ind.i ++;
 	}
 	if (ind.c == FALSE)
-		return (cmd->path_cmd = NULL, FAILED);
+	{
+		ind.c = check_access(cmd, other, -1);
+		if (ind.c == FALSE)
+			return (cmd->path_cmd = NULL, FAILED);
+	}
 	return (SUCCESSFUL);
 }
 

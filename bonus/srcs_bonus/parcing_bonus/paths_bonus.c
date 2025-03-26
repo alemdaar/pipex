@@ -18,6 +18,8 @@ void	edit_paths(t_other *other, char **envp)
 
 	find_path(other, envp);
 	count_path(other);
+	if (other->all_path == NULL)
+		return ;
 	other->paths = malloc (sizeof(char *) * other->count_path);
 	if (!other->paths)
 		why_exit("other->paths allocation failed !", FAILED);
@@ -40,7 +42,7 @@ void	edit_paths(t_other *other, char **envp)
 	return ;
 }
 
-void	find_path(t_other *other, char	**envp)
+int	find_path(t_other *other, char **envp)
 {
 	int	i;
 
@@ -54,13 +56,14 @@ void	find_path(t_other *other, char	**envp)
 				if (envp[i][4] == '=')
 				{
 					other->all_path = envp[i];
-					return ;
+					return (SUCCESSFUL);
 				}
 			}
 		}
 		i++;
 	}
-	why_exit("path is not exist\n", 1);
+	other->all_path = NULL;
+	return (SUCCESSFUL);
 }
 
 void	count_path(t_other *other)
